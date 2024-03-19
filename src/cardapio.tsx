@@ -21,7 +21,7 @@ const renderItem = ({item}: {item: Item}) => (
 )
 
 const dados: Item[] = [
-{id: "1", nome: "Luciano Burguer", preco: "R$14.00", listaIngredientes: "Pão brioche, Queijo cheddar, Blend 180g, Maionese da casa, Bacon,", image: require('./assets/images/luciano.png')},
+{id: "1", nome: "Luciano Burguer", preco: "R$14.00", listaIngredientes: "Pão brioche, Queijo cheddar, Blend 180g, Maionese da casa, Bacon", image: require('./assets/images/luciano.png')},
 {id: "2", nome: "Calleri Burguer", preco: "R$22.00", listaIngredientes: "Pão brioche, Queijo cheddar,2 Blends 180g, Maionese da casa, Alface e Cebola Roxa, Bacon", image: require('./assets/images/calleri.png')},
 {id: "3", nome: "Carpini Burguer", preco: "R$15.00", listaIngredientes: "Pão brioche, Queijo mussarela, Blend de Peito de Frango, Maionese da casa", image: require('./assets/images/carpini.png')},
 {id: "4", nome: "Diego Costa Burguer", preco: "R$20.00", listaIngredientes: "Pão brioche, Queijo mussarela, 2 Blend de Peito de Frango, Maionese da casa",  image: require('./assets/images/costa.png')},
