@@ -47,7 +47,12 @@ function Cardapio(): React.JSX.Element {
         <View style={styles.container} >
         <StatusBar backgroundColor="red" barStyle='light-content'/>
         <View style={styles.header} >
+        <Image source={require('./assets/images/spfc.png')}
+            style={styles.headerImage}
+            />
             <Text style={styles.headerText} >Hamburgueria Tricolor </Text>
+            
+            
         </View >
     
             <FlatList 
@@ -94,7 +99,7 @@ function Cardapio(): React.JSX.Element {
         },
         item: {
             backgroundColor: '#ff0f27',
-        padding: 20,
+        padding: 30,
         marginVertical: 8,
         marginHorizontal: 16,
         borderRadius: 25
@@ -104,7 +109,7 @@ function Cardapio(): React.JSX.Element {
         header: {
             backgroundColor: 'black',
             alignItems: 'center',
-            paddingVertical: 20,
+            paddingVertical: 5,
         
         },
         image: {
@@ -116,7 +121,7 @@ function Cardapio(): React.JSX.Element {
         headerText: {
             fontSize: 25,
             fontWeight: 'bold',
-            color: 'white',
+            color: 'yellow',
             fontStyle: 'italic'
         },
         textColor: {
@@ -140,6 +145,14 @@ function Cardapio(): React.JSX.Element {
             fontWeight: 'bold',
             color: 'yellow'
         },
+        headerImage: {
+            width: 400,
+            height: 140,
+            alignItems: 'center',
+            marginTop: 'auto'   
+        }
+
+   
     });
     
 
