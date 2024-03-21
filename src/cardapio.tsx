@@ -106,7 +106,7 @@ function Cardapio(): React.JSX.Element {
 
         item: {
         backgroundColor: 'black',
-        padding: 40,
+        padding: 45,
         marginVertical: 8,
         marginHorizontal: 13,
         borderRadius: 15,
@@ -118,7 +118,8 @@ function Cardapio(): React.JSX.Element {
             backgroundColor: 'black',
             alignItems: 'center',
             borderBottomLeftRadius: 30,
-            borderBottomRightRadius: 30
+            borderBottomRightRadius: 30,
+        
           
         
         },
