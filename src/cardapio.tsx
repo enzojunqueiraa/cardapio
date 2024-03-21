@@ -100,14 +100,14 @@ function Cardapio(): React.JSX.Element {
     
         container: {
             flex: 1,
-            backgroundColor: '#77181e',
+             backgroundColor: 'silver',
            
         },
 
         item: {
         backgroundColor: 'black',
         padding: 40,
-        marginVertical: 5,
+        marginVertical: 8,
         marginHorizontal: 13,
         borderRadius: 15,
 
@@ -117,19 +117,16 @@ function Cardapio(): React.JSX.Element {
         header: {
             backgroundColor: 'black',
             alignItems: 'center',
+            borderBottomLeftRadius: 30,
+            borderBottomRightRadius: 30
           
-            
-            
-    
+        
         },
         image: {
             width: 190,
             height: 173,
             marginRight: 'auto',
            
-            
-          
-
         },
         headerText: {
             fontSize: 25,
@@ -150,7 +147,9 @@ function Cardapio(): React.JSX.Element {
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
-            paddingVertical: 10
+            paddingVertical: 10,
+            borderTopRightRadius: 30,
+            borderTopLeftRadius: 30
         },
         footerIcon: {
             width: 30,
@@ -188,7 +187,7 @@ function Cardapio(): React.JSX.Element {
             height: 125,
             borderWidth: 2,
             borderColor: 'white',
-            borderRadius:25,
+            borderRadius:39,
             resizeMode: 'center',
             backgroundColor: 'red'
 
