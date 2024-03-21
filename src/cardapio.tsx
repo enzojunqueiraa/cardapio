@@ -1,12 +1,14 @@
+
 import React, { useState } from "react";
-import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface Item {
     id: string;
     nome: string;
     preco: string;
     listaIngredientes:string;
-     image: any;
+    image: any;
+     
     
 }
 
@@ -21,9 +23,11 @@ const renderItem = ({item}: {item: Item}) => (
         <Text style={styles.textNome}>{item.nome}</Text>
         <Text style={styles.ingredientes}>{item.listaIngredientes}</Text>
         <Text style={styles.preco}>{item.preco}</Text>
+
+        
        
        
-       
+
     </TouchableOpacity>
 )
 
@@ -91,6 +95,11 @@ function Cardapio(): React.JSX.Element {
             <Image source={require('./assets/images/profile.png')}
             style={styles.footerIcon} />
             </TouchableOpacity>
+            <TouchableOpacity >
+            <Image source={require('./assets/images/carrinho.png')}
+            style={styles.footerIcon} />
+            </TouchableOpacity>
+          
           
         </View>
         </View>
@@ -111,17 +120,13 @@ function Cardapio(): React.JSX.Element {
         marginHorizontal: 13,
         borderRadius: 15,
 
-    
-        
         },
         header: {
             backgroundColor: 'black',
             alignItems: 'center',
             borderBottomLeftRadius: 30,
             borderBottomRightRadius: 30,
-        
-          
-        
+         
         },
         image: {
             width: 190,
@@ -134,6 +139,7 @@ function Cardapio(): React.JSX.Element {
             fontWeight: 'bold',
             color: 'white',
             fontStyle: 'italic'
+
         },
         textNome: {
             fontWeight: 'bold',
@@ -141,6 +147,7 @@ function Cardapio(): React.JSX.Element {
             fontStyle: 'italic',
             marginStart: 'auto',
             fontSize: 19
+
         },
         footer: {
             borderTopWidth: 0.2,
@@ -151,6 +158,7 @@ function Cardapio(): React.JSX.Element {
             paddingVertical: 10,
             borderTopRightRadius: 30,
             borderTopLeftRadius: 30
+
         },
         footerIcon: {
             width: 30,
@@ -163,13 +171,13 @@ function Cardapio(): React.JSX.Element {
             marginLeft: 'auto',
             fontSize: 16
             
-
         },
         headerImage: {
             width: 400,
             height: 140,
             alignItems: 'center',
             marginTop: 'auto'   
+
         }, 
         ingredientes: {
             color: "white",
@@ -182,6 +190,7 @@ function Cardapio(): React.JSX.Element {
         imageBg: {
             flex: 1,
     justifyContent: 'center',
+
         },
         quadradinho: {
             width: 300,
