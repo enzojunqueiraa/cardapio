@@ -11,25 +11,27 @@ interface Item {
      
     
 }
-
+const add = require('./assets/images/add.png');
 
 
 
 const renderItem = ({item}: {item: Item}) => (
+    <View style={styles.itemContainer}> 
     <TouchableOpacity style={styles.item}>
-        
-        
         <Image  source={item.image} style={styles.quadradinho}  />
+        <View>
         <Text style={styles.textNome}>{item.nome}</Text>
         <Text style={styles.ingredientes}>{item.listaIngredientes}</Text>
         <Text style={styles.preco}>{item.preco}</Text>
-
-        
-       
-       
+        </View>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.addButton}>
+    <Image source={add} style={styles.addIcon} />
 
     </TouchableOpacity>
-)
+    
+    </View>
+);
 
 const dados: Item[] = [
 {id: "1", nome: "Lᴜᴄɪᴀɴᴏ Bᴜʀɢᴜᴇʀ", preco: "$14.00", listaIngredientes: "𝙿𝚊̃𝚘 𝚋𝚛𝚒𝚘𝚌𝚑𝚎, 𝚀𝚞𝚎𝚒𝚓𝚘 𝚌𝚑𝚎𝚍𝚍𝚊𝚛, 𝙱𝚕𝚎𝚗𝚍 𝟷𝟾𝟶𝚐, 𝙼𝚊𝚒𝚘𝚗𝚎𝚜𝚎 𝚍𝚊 𝚌𝚊𝚜𝚊, 𝙱𝚊𝚌𝚘𝚗", image: require('./assets/images/luciano.png')},
@@ -201,6 +203,23 @@ function Cardapio(): React.JSX.Element {
             resizeMode: 'center',
             backgroundColor: 'red'
 
+        },
+        addIcon: {
+            width: 30,
+            height: 30
+        },
+        addButton: {
+            position: 'absolute',
+            right: 10,
+            bottom: 10
+        },
+        itemContainer: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems:'center',
+            marginVertical: 8,
+            marginHorizontal: 8
+            
         }
        
 
