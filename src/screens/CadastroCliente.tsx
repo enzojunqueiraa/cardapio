@@ -294,7 +294,7 @@ justifyContent: 'center',
 
 
 
-})
+});
 
 
 
