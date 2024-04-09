@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     },
     imageBg: {
         flex: 1,
-justifyContent: 'center',
+justifyContent: 'center'
 
 
 
