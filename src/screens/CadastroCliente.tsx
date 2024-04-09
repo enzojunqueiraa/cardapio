@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, ImageBackground, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import axios from 'axios';
 
@@ -9,6 +9,7 @@ const CadastroCliente: React.FC = () => {
     const [imagem, setImagem] = useState<any>('');
     const [nome, setNome] = useState<string>('');
     const [telefone, setTelefone] = useState<string>('');
+    const [cpf, setCpf] = useState<string>('');
     const [endereco, setEndereco] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -27,8 +28,8 @@ const CadastroCliente: React.FC = () => {
             formData.append('telefone', telefone);
             formData.append('endereco', endereco);
             formData.append('email', email);
+            formData.append('cpf', cpf);
             formData.append('password', password);
-
             const response = await axios.post('http://10.137.11.226:8000/api/clientes', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -78,6 +79,7 @@ const CadastroCliente: React.FC = () => {
                 setImagem(imageUri)
             }
         })
+        
 
 
 
@@ -85,13 +87,19 @@ const CadastroCliente: React.FC = () => {
 
 
     return (
+         <ScrollView style={{ height: '100%', width: "auto" }}>
         <View style={styles.container}>
-           
-            <StatusBar backgroundColor="red" barStyle='light-content'  />  
+             
+            
+          <Image source={require('../assets/images/spfcHeader.png')}
+            style={styles.headerImage}
+            />
+            <StatusBar backgroundColor="red" barStyle='light-content'/>  
         <View style={styles.header}>
             <Text style={styles.headerText}>Cadastro Cliente</Text>
+            
         </View>
-        
+          
         <View style={styles.alinhamentoImagensSelecionada} > 
           {imagem ? <Image source={{ uri: imagem}} style={styles.imageSelecionada} /> : null}  
          </View>
@@ -125,13 +133,17 @@ const CadastroCliente: React.FC = () => {
 
             <TextInput 
             style={styles.input}
+            placeholder="Cpf"
+            value={cpf}
+            onChangeText={setCpf}
+            multiline />
+
+            <TextInput 
+            style={styles.input}
             placeholder="Password"
             value={password}
             onChangeText={setPassword}
             multiline />
-
-
-          
 
          <TouchableOpacity style={styles.imageButton} onPress={selecionarImagem}>
             <Text style={styles.imageButtonText} > Selecionar Imagens</Text>
@@ -142,10 +154,42 @@ const CadastroCliente: React.FC = () => {
          </TouchableOpacity>
 
          <TouchableOpacity style={styles.imageButton} onPress={cadastrarCliente}>
-            <Text style={styles.imageButtonText} > Cadastrar Produto</Text>
+            <Text style={styles.imageButtonText} > Cadastrar Cliente</Text>
          </TouchableOpacity>
          </View>
+         <View style={styles.footer}>
+         
+           <TouchableOpacity >
+            <Image source={require('../assets/images/home.png')}
+            style={styles.footerIcon} />
+           </TouchableOpacity>
+
+           <TouchableOpacity >
+           <Image source={require('../assets/images/orders.png')}
+           style={styles.footerIcon} />
+           </TouchableOpacity>
+
+           <TouchableOpacity >
+           <Image source={require('../assets/images/menuMenor.png')}
+           style={styles.footerIcon} />
+           </TouchableOpacity>
+
+           <TouchableOpacity >
+            <Image source={require('../assets/images/profile.png')}
+            style={styles.footerIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+            <Image source={require('../assets/images/carrinho.png')}
+            style={styles.footerIcon} />
+            </TouchableOpacity>
          </View>
+         
+
+         </View>
+
+         </ScrollView>
+         
+         
 
     );
     
@@ -158,18 +202,50 @@ const styles = StyleSheet.create({
     },
     header: {
         backgroundColor: 'red',
-        paddingVertical: 10,
-        alignItems: 'center'
+        paddingVertical: 15,
+        alignItems: 'center',
+
     },
+    headerImage: {
+        width: 400,
+        height: 143,
+        alignItems: 'center',
+          
+
+    }, 
     headerText: {
         fontSize: 20,
         fontWeight: 'bold',
         color: 'white'
     },
     form: {
-        padding: 10,
+        padding: 15,
         backgroundColor: '#f0f0f0',
-        marginBottom: 10
+        marginBottom: 19,
+      
+    },
+    footer: {
+        borderTopWidth: 0.9,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        paddingVertical: 20,
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
+        padding:17
+    
+
+    },
+    footerIcon: {
+        width: 30,
+        height: 30,
+    
+    
+    },
+    imageBg: {
+        flex: 1,
+justifyContent: 'center',
+
     },
     input: {
         height: 40,
@@ -199,7 +275,8 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     alinhamentoImagensSelecionada: {
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 5
     },
     button: {
         backgroundColor: 'red',

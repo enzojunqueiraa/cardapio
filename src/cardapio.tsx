@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface Item {
     id: string;
@@ -57,6 +57,7 @@ const dados: Item[] = [
 
 function Cardapio(): React.JSX.Element {
     return (
+        <ScrollView style={{ height: '100%', width: "auto" }}>
         <View style={styles.container} >
             <ImageBackground source={require('./assets/images/spfcTorcida.png')} style={styles.imageBg} >
         <StatusBar backgroundColor="red" barStyle='light-content'/>
@@ -104,8 +105,10 @@ function Cardapio(): React.JSX.Element {
           
           
         </View>
-        </View>
-    )
+        </View> 
+        </ScrollView>
+    );
+   
     }
     const styles = StyleSheet.create ({
     

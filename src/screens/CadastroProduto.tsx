@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import axios from 'axios';
 
@@ -82,11 +82,16 @@ const CadastroProduto: React.FC = () => {
 
 
     return (
+        <ScrollView style={{ height: '100%', width: "auto" }}>
         <View style={styles.container}>
+            <Image source={require('../assets/images/spfcHeader.png')}
+            style={styles.headerImage}
+            />
             <StatusBar backgroundColor="red" barStyle='light-content'  />  
         <View style={styles.header}>
-            <Text style={styles.headerText}>Top food</Text>
+            <Text style={styles.headerText}>Cadastrar Produto</Text>
         </View>
+       
           <View style={styles.form} >
             <TextInput 
             style={styles.input} 
@@ -124,8 +129,35 @@ const CadastroProduto: React.FC = () => {
             <Text style={styles.imageButtonText} > Cadastrar Produto</Text>
          </TouchableOpacity>
          </View>
-         </View>
+         <View style={styles.footer}>
+         
+           <TouchableOpacity >
+            <Image source={require('../assets/images/home.png')}
+            style={styles.footerIcon} />
+           </TouchableOpacity>
 
+           <TouchableOpacity >
+           <Image source={require('../assets/images/orders.png')}
+           style={styles.footerIcon} />
+           </TouchableOpacity>
+
+           <TouchableOpacity >
+           <Image source={require('../assets/images/menuMenor.png')}
+           style={styles.footerIcon} />
+           </TouchableOpacity>
+
+           <TouchableOpacity >
+            <Image source={require('../assets/images/profile.png')}
+            style={styles.footerIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity >
+            <Image source={require('../assets/images/carrinho.png')}
+            style={styles.footerIcon} />
+            </TouchableOpacity>
+         </View>
+     
+         </View>
+         </ScrollView>
     );
 }
 
@@ -138,15 +170,39 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         alignItems: 'center'
     },
+    
     headerText: {
         fontSize: 20,
         fontWeight: 'bold',
         color: 'white'
     },
+    headerImage: {
+        width: 400,
+        height: 143,
+        alignItems: 'center',
+          
+
+    }, 
     form: {
-        padding: 10,
+        padding: 12,
         backgroundColor: '#f0f0f0',
-        marginBottom: 10
+        marginBottom: 15,
+        paddingVertical: 90
+    },
+    footer: {
+        borderTopWidth: 1,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
+        padding:17
+    },
+    footerIcon: {
+        width: 30,
+        height: 30,
+    
+    
     },
     input: {
         height: 40,
@@ -176,7 +232,8 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     alinhamentoImagensSelecionada: {
-        alignItems: 'center'
+        alignItems: 'center',
+     
     },
     button: {
         backgroundColor: 'red',
@@ -187,7 +244,10 @@ const styles = StyleSheet.create({
     buttonText: {
         color: 'white',
         fontWeight: 'bold'
-    }
+    },
+    imageBg: {
+        flex: 1,
+justifyContent: 'center',
 
 
 
