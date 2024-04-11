@@ -7,11 +7,11 @@ function App(): React.JSX.Element {
 
 
   return (
- // < Cardapio />
+   < Cardapio />
 
- // < CadastroProduto />
+ //< CadastroProduto />
 
-  <CadastroCliente />
+ // <CadastroCliente />
 
   );
 }
